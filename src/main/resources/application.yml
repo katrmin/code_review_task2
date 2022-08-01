@@ -1,0 +1,14 @@
+spring:
+  liquibase:
+    change-log: db/changelog/db.changelog-master.xml
+    user: root
+    password: 123
+  datasource:
+    url: jdbc:postgresql://localhost:5432/task2
+    username: root
+    password: 123
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQL10Dialect
+
