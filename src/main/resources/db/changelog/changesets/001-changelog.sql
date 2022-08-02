@@ -3,8 +3,9 @@
 --changeset Minaeva Ekaterina:001-changelog.sql
 create table Url
 (
-    id           bigserial primary key,
-    short_url    text,
-    original_url text
+    id       bigserial primary key,
+    link     text,
+    original text,
+    count    bigint
 );
---rollback drop table test1;
+--rollback drop table Url;
