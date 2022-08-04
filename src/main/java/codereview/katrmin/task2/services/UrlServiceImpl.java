@@ -29,6 +29,7 @@ public class UrlServiceImpl implements UrlService {
         UrlEntity urlEntity = new UrlEntity();
         urlEntity.setLink(generateLink());
         urlEntity.setOriginal(urlDto.getOriginal());
+        urlEntity.setCount(0L);
         urlEntityRepository.save(urlEntity);
         return new LinkDto(urlEntity.getLink());
     }

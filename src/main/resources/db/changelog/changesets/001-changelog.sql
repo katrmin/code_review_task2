@@ -5,7 +5,7 @@ create table Url
 (
     id       bigserial primary key,
     link     text unique,
-    original text,
-    count    bigint
+    original text unique,
+    count    bigint default 0
 );
 --rollback drop table Url;
