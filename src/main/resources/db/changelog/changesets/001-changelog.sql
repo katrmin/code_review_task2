@@ -4,7 +4,7 @@
 create table Url
 (
     id       bigserial primary key,
-    link     text,
+    link     text unique,
     original text,
     count    bigint
 );
