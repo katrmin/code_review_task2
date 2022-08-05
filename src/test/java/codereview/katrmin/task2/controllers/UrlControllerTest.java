@@ -3,7 +3,6 @@ package codereview.katrmin.task2.controllers;
 import codereview.katrmin.task2.dtos.LinkDto;
 import codereview.katrmin.task2.dtos.UrlDto;
 import codereview.katrmin.task2.services.UrlService;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.hamcrest.Matchers;
 import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentMatchers;
@@ -26,7 +25,6 @@ class UrlControllerTest {
     private MockMvc mockMvc;
     @MockBean
     private UrlService urlService;
-    private static ObjectMapper mapper = new ObjectMapper();
 
     @Test
     void successlGettingShortLink() throws Exception {
