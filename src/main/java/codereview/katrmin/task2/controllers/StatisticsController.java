@@ -2,7 +2,7 @@ package codereview.katrmin.task2.controllers;
 
 import codereview.katrmin.task2.dtos.LinkDto;
 import codereview.katrmin.task2.dtos.StatisticsDto;
-import codereview.katrmin.task2.entities.UrlStatatistics;
+import codereview.katrmin.task2.entities.UrlStatistics;
 import codereview.katrmin.task2.repositories.UrlEntityRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -28,7 +28,7 @@ public class StatisticsController {
     @GetMapping("/{link}")
     public StatisticsDto getStatisticsByLink(@Valid @PathVariable("link") LinkDto linkDto) {
         log.info("Получен запрос на получение статистики по короткой ссылки: {}", linkDto);
-        UrlStatatistics statistics = urlEntityRepository.getStatisticsByLink(linkDto.getLink());
+        UrlStatistics statistics = urlEntityRepository.getStatisticsByLink(linkDto.getLink());
         StatisticsDto statisticsDto = StatisticsDto.builder()
                 .link(statistics.getLink())
                 .original(statistics.getOriginal())
@@ -42,7 +42,7 @@ public class StatisticsController {
     @GetMapping
     public List<StatisticsDto> getAllStatistics(@RequestParam int page, @RequestParam int count) {
         log.info("Получен запрос на получение статистики по всем коротким ссылкам");
-        Page<UrlStatatistics> statisticsList = urlEntityRepository.getAllUrlStatistics(PageRequest.of(page, count));//, Sort.by("count").descending()));
+        Page<UrlStatistics> statisticsList = urlEntityRepository.getAllUrlStatistics(PageRequest.of(page, count));
         List<StatisticsDto> statisticsDtoList = statisticsList.stream()
                 .map(st -> new StatisticsDto(st.getLink(), st.getOriginal(), st.getCount(), st.getRank()))
                 .collect(Collectors.toList());

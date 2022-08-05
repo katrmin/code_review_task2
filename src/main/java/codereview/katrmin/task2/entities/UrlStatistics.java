@@ -1,6 +1,6 @@
 package codereview.katrmin.task2.entities;
 
-public interface UrlStatatistics {
+public interface UrlStatistics {
     String getLink();
 
     String getOriginal();
