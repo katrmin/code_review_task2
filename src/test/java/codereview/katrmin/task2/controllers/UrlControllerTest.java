@@ -27,7 +27,7 @@ class UrlControllerTest {
     private UrlService urlService;
 
     @Test
-    void successlGettingShortLink() throws Exception {
+    void successGettingShortLink() throws Exception {
         String jsonRequest = "{\"original\": \"https://classroom.google.com/c/NTI1NDAzOTg3OTY3/a/NTI1NDAzOTg3OTgy/details\"}";
         String expectedResponse = "L1ink2";
         LinkDto linkDto = new LinkDto(expectedResponse);
